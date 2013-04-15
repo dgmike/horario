@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "config.c"
 #include "template.h"
 
 char *template_file(char *filename) {
     char* final_filename = "";
     
-    final_filename = malloc( strlen(filename) + 13 + 1 );
+    final_filename = malloc( strlen(filename) + TEMPLATE_CONSTANTS_LENGTH + 1 );
 
-    strcpy(final_filename, "./template/");
+    strcpy(final_filename, TEMPLATE_PATH);
     strcat(final_filename, filename);
-    strcat(final_filename, ".t");
+    strcat(final_filename, TEMPLATE_EXT);
 
     return final_filename;
 }
