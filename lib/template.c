@@ -4,15 +4,15 @@
 #include "template.h"
 
 char *template_file(char *filename) {
-    char* new_filename = "";
-    const char* path = "./template/";
-    const char* ext  = ".t";
+    char* final_filename = "";
+    
+    final_filename = malloc( strlen(filename) + 13 + 1 );
 
-    new_filename = malloc( strlen(filename) + strlen(path) + strlen(ext) + 4 );
-    strcpy(new_filename, path);
-    strcat(new_filename, filename);
-    strcat(new_filename, ext);
-    return new_filename;
+    strcpy(final_filename, "./template/");
+    strcat(final_filename, filename);
+    strcat(final_filename, ".t");
+
+    return final_filename;
 }
 
 int template_load(char *filename) {
